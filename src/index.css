@@ -1,0 +1,96 @@
+.App{
+  border: 1px solid black;
+}
+
+.food-field{
+  margin: 50px 100px 0 100px;
+}
+
+.App .food-form{
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}
+.input-width{
+  width: 300px;
+}
+.input-width:last-child{
+  width: 100px;
+}
+
+.App .col2{
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.App .col2 .foods{
+  border: 1px solid black; 
+  display: flex;
+  flex-wrap: wrap;
+  flex: 80%;
+}
+
+.App .col2 .filter-box{
+  display: flex;
+  flex-direction: column;
+  flex: 20%;
+}
+
+.App .col2 .foods .food-box{
+  width: 25%;
+}
+
+.App .col2 .foods .food-box .margin-box{
+  margin: 10px;
+  border: 1px solid black;
+  text-align: center;
+  cursor: pointer;
+}
+
+.App .col2 .foods .food-box .food-img{
+  width: 100%;
+}
+
+.App .col2 .foods .food-box .food-img img{
+  width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .food-field{
+    margin: 50px;
+  }
+  .App .col2 .foods .food-box{
+    width: 30%;
+  }
+  .App .col2 .food-form{
+    padding: 20px;
+  }
+  .input-width{
+    width: 300px;
+  }
+  .input-width:last-child{
+    width: 100px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .App .col2.foods .food-box{
+    width: 50%;
+    font-size: small;
+  }
+  .input-width{
+    width: 150px;
+    font-size: small;
+  }
+  .input-width:last-child{
+    width: 70px;
+    font-size: small;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .App .col2 .foods .food-box{
+    width: 100%;
+  }
+}
