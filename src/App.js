@@ -18,8 +18,6 @@ function App() {
           <Route path='/food-detail/:id' element={<DetailFood foods={foods} valid={valid}/>}></Route>
         </Routes>
       </BrowserRouter>
-      {/* <ListFoods foods={foods}  valid={valid} isPending={isPending} /> */}
-      
     </div> 
   );
 }

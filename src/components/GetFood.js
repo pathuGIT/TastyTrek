@@ -1,10 +1,15 @@
 import { useRef, useState } from "react";
 import { searchFood } from "../servise/serivise";
+import { searchFilter } from "../servise/serivise";
 import { useEffect } from "react";
 import {useNavigate} from 'react-router-dom';
 
 const GetFood = ({foods, setFoods, valid, setValid, isPending, setIspending}) => {
     const query = useRef('');
+    const filterAlco = useRef(0);
+    const minCalc = useRef(0);
+    const maxProt = useRef(0);
+    const maxChol = useRef(0);
     const navigate = useNavigate();
 
     useEffect(()=>{
@@ -14,9 +19,26 @@ const GetFood = ({foods, setFoods, valid, setValid, isPending, setIspending}) =>
     const handleNavigate = (fid) => {
         navigate(`food-detail/${fid}`); 
     };
+    const handleFilter = ()=>{
+        setValid(false)
+        setIspending(true);
+        setTimeout(()=>{
+
+            searchFilter(query.current.value,filterAlco.current.value,minCalc.current.value,maxChol.current.value)
+            .then((response2) => {
+                setValid(true)
+                setFoods(response2.data);
+                console.log(response2.data);
+                setIspending(false);
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+        },1000)
+    }
+
     const handleSearch = (e)=>{
         e.preventDefault();
-        // setFoods()
         setValid(false)
         
         if (query.current.value.trim() === '') {
@@ -66,11 +88,11 @@ const GetFood = ({foods, setFoods, valid, setValid, isPending, setIspending}) =>
                     {isPending && <p>Loading...</p> }  
                 </div>   
                 <div className="filter-box">
-                    <input type="text" name="" id="" />
-                    <input type="text" name="" id="" />
-                    <input type="text" name="" id="" />
-                    <input type="text" name="" id="" />
-                    <button>Button</button>
+                    <input type="text" placeholder="Min Alcohol" id="" ref={filterAlco} />
+                    <input type="text" placeholder={'Min Calcium'} id="" ref={minCalc} />
+                    <input type="text" placeholder='Max Protein' id=""  />
+                    <input type="text" placeholder="Max Cholesterol" id="" ref={maxChol} />
+                    <button onClick={handleFilter}>Button</button>
                 </div> 
             </div>    
             
