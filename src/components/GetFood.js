@@ -24,7 +24,7 @@ const GetFood = ({foods, setFoods, valid, setValid, isPending, setIspending}) =>
         setIspending(true);
         setTimeout(()=>{
 
-            searchFilter(query.current.value,filterAlco.current.value,minCalc.current.value,maxChol.current.value)
+            searchFilter(query.current.value,filterAlco.current.value,minCalc.current.value, maxProt.current.value, maxChol.current.value)
             .then((response2) => {
                 setValid(true)
                 setFoods(response2.data);
@@ -63,8 +63,9 @@ const GetFood = ({foods, setFoods, valid, setValid, isPending, setIspending}) =>
 
     return (
         <div className="food-field">
+            <h2 className="title">TastyTrek</h2>
             <form className="food-form">
-                <input type="text" className="input-width" ref={query} required/>
+                <input type="text" placeholder="Search your foods.." className="input-width" ref={query} required/>
                 <input type="submit" className="input-width" value="SEARCH" onClick={handleSearch} />
             </form>
 
@@ -85,14 +86,18 @@ const GetFood = ({foods, setFoods, valid, setValid, isPending, setIspending}) =>
                         ))
                     }
                     {!isPending && <p></p> }   
-                    {isPending && <p>Loading...</p> }  
+                    {isPending && <p className="loading">Loading...</p> }  
                 </div>   
                 <div className="filter-box">
-                    <input type="text" placeholder="Min Alcohol" id="" ref={filterAlco} />
-                    <input type="text" placeholder={'Min Calcium'} id="" ref={minCalc} />
-                    <input type="text" placeholder='Max Protein' id=""  />
-                    <input type="text" placeholder="Max Cholesterol" id="" ref={maxChol} />
-                    <button onClick={handleFilter}>Button</button>
+                    <label for="">Min Alcohol</label>
+                    <input type="text" placeholder="24" id="" ref={filterAlco} />
+                    <label for="">Min Calcium</label>
+                    <input type="text" placeholder='2.5' id="" ref={minCalc} />
+                    <label for="">Max Portein</label>
+                    <input type="text" placeholder='3' id="" ref={maxProt} />
+                    <label for="">Max Cholesterol</label>
+                    <input type="text" placeholder="0.05" id="" ref={maxChol}/>
+                    <button onClick={handleFilter}>Filter</button>
                 </div> 
             </div>    
             

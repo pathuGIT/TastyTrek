@@ -14,12 +14,18 @@ export const searchFood = async (query) => {
     return response;
 }
 
-export const searchFilter = async (query,filterAlco,minCalc,maxCol) => {
+export const searchFilter = async (query,filterAlco,minCalc,maxPort,maxCol) => {
   if(filterAlco == 0){
-    filterAlco = 0;
+    filterAlco = null;
   }
   if(minCalc == 0){
-    minCalc = 0;
+    minCalc = null;
+  }
+  if(maxPort == 0){
+    maxPort = null;
+  }
+  if(maxCol == 0){
+    maxCol = null;
   }
   const response2 = await axios.get('https://api.apilayer.com/spoonacular/recipes/complexSearch', {
     headers: {
@@ -30,7 +36,8 @@ export const searchFilter = async (query,filterAlco,minCalc,maxCol) => {
       addRecipeInformation: true, 
       minAlcohol: filterAlco,
       minCalcium: minCalc,
-      maxCholesterol: maxCol  
+      maxProtein: maxPort,
+      maxCholesterol: maxCol
     }
 });
 

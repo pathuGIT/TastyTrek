@@ -21,16 +21,15 @@ const DetailFood = ({ foods, valid }) => {
     const foodData = valid ? foods : localFoods;
 
     return (
-        <div>
+        <div className='food-detail'>
             {foodData && foodData.results && foodData.results.map((food) => (
                 food.id == id && (
-                    <div key={food.id}>
+                    <div className='center-food-detail' key={food.id}>
                         <img src={food.image} alt={food.title} />
                         <p>ID: {food.id}</p>
                         <p>Name: {food.title}</p>
                         <p>Price: {food.pricePerServing}</p>
                         <p>Time for prepare: {food.readyInMinutes} Minutes</p>
-                        <p>{food.summary}</p>
                     </div>
                 )
             ))}

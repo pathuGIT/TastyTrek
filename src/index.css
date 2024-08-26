@@ -1,96 +1,309 @@
+body{
+  background-color: #694F8E;
+}
 .App{
   border: 1px solid black;
+  height: max-content
 }
-
+.title {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 2em; /* Increase font size */
+  color: #333; /* Dark grey text color */
+  font-weight: bold; /* Bold text */
+  margin-bottom: 20px; /* Add space below the title */
+  text-transform: uppercase; /* Uppercase text */
+  letter-spacing: 1px; /* Add letter spacing */
+}
 .food-field{
-  margin: 50px 100px 0 100px;
+  margin: 50px 100px 50px 100px;
+  background-color: #B692C2;
 }
 
-.App .food-form{
-  border: 1px solid black;
+.App .food-form {
   display: flex;
   justify-content: center;
-  padding: 50px;
-}
-.input-width{
-  width: 300px;
-}
-.input-width:last-child{
-  width: 100px;
+  padding: 30px;
+  background-color: #f9f9f9; /* Light background color */
+  border: 1px solid #ddd; /* Light border */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  margin: 5px 5px 3px 5px;
 }
 
+.input-width {
+  width: 300px;
+  padding: 5px; /* Add padding for better look */
+  margin-right: 10px; /* Space between inputs */
+  border: 1px solid #ccc; /* Light border */
+  border-radius: 4px; /* Rounded corners */
+  background-color: #fff; /* White background */
+  border: 1px solid black;
+}
+
+.input-width::placeholder {
+  padding: 2px;
+  color: #999; /* Light grey placeholder text */
+}
+
+.input-width:last-child {
+  width: 100px;
+  margin-right: 0; /* Remove margin for the last input */
+}
+
+.input-width:last-child  {
+  border: none; /* Remove default border */
+  padding: 10px 20px; /* Add padding for better look */
+  border-radius: 4px; /* Rounded corners */
+  background-color: #007bff; /* Blue background */
+  color: #fff; /* White text */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+.food-form button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+.loading{
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%);
+}
 .App .col2{
   display: flex;
   flex-direction: row-reverse;
 }
 
-.App .col2 .foods{
-  border: 1px solid black; 
-  display: flex;
-  flex-wrap: wrap;
-  flex: 80%;
-}
-
-.App .col2 .filter-box{
+.App .col2 .filter-box {
+  font-size: medium;
   display: flex;
   flex-direction: column;
   flex: 20%;
+  padding: 15px 15px 15px 20px;
+  background-color: #f9f9f9; /* Light background color */
+  border: 1px solid #ddd; /* Light border */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  margin: 5px;
 }
 
-.App .col2 .foods .food-box{
+.App .col2 .filter-box input {
+  margin-bottom: 10px;
+  width: 80%;
+  padding: 10px; /* Add padding for better look */
+  border: 1px solid #ccc; /* Light border */
+  border-radius: 4px; /* Rounded corners */
+  background-color: #fff; /* White background */
+}
+
+.App .col2 .filter-box button {
+  border: none; /* Remove default border */
+  margin-top: 20px;
+  width: 80%;
+  padding: 10px; /* Add padding for better look */
+  border-radius: 4px; /* Rounded corners */
+  background-color: #007bff; /* Blue background */
+  color: #fff; /* White text */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s; /* Smooth transition */
+}
+.App .col2 .foods {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 80%;
+  background-color: #f9f9f9; /* Light background color */
+  padding: 15px; /* Add padding for better spacing */
+  border: 1px solid #ddd; /* Light border */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  margin: 5px;
+}
+
+.App .col2 .foods .food-box {
   width: 25%;
+  padding: 10px; /* Add padding for better spacing */
 }
 
-.App .col2 .foods .food-box .margin-box{
+.App .col2 .foods .food-box .margin-box {
   margin: 10px;
-  border: 1px solid black;
   text-align: center;
   cursor: pointer;
+  background-color: #fff; /* White background */
+  border: 1px solid #ccc; /* Light border */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition */
 }
 
-.App .col2 .foods .food-box .food-img{
-  width: 100%;
+.App .col2 .foods .food-box .margin-box:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
 }
 
-.App .col2 .foods .food-box .food-img img{
+.App .col2 .foods .food-box .food-img {
   width: 100%;
+  border-bottom: 1px solid #ddd; /* Light border at the bottom */
+  border-radius: 8px 8px 0 0; /* Rounded corners at the top */
+  overflow: hidden; /* Ensure image fits within the box */
 }
+
+.App .col2 .foods .food-box .food-img img {
+  width: 100%;
+  border-radius: 8px 8px 0 0; /* Rounded corners at the top */
+}
+.loading {
+  font-size: 1.8em;
+  text-align: center;
+  animation: pulse 1.5s infinite, colorChange 3s infinite; /* Apply the pulse and colorChange animations */
+}
+
+/* Here styles for food-detils */
+.food-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Full viewport height */
+}
+.food-detail .center-food-detail{
+  padding: 20px;
+  background-color: #f9f9f9; /* Light background color */
+  border: 1px solid #ddd; /* Light border */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  max-width: 600px; /* Limit the width */
+  margin: 0 auto; /* Center the container horizontally */
+
+}
+.food-detail img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px; /* Rounded corners */
+  margin-bottom: 20px; /* Space below the image */
+}
+
+.food-detail p {
+  font-size: 1em;
+  color: #333; /* Dark grey text color */
+  margin: 10px 0; /* Space between paragraphs */
+}
+
+.food-detail p:first-of-type {
+  font-weight: bold; /* Bold text for the first paragraph */
+}
+
+.food-detail p:last-of-type {
+  text-align: justify; /* Justify the summary text */
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes colorChange {
+  0% {
+    color: #007bff; /* Blue */
+  }
+  33% {
+    color: #28a745; /* Green */
+  }
+  66% {
+    color: #ffc107; /* Yellow */
+  }
+  100% {
+    color: #007bff; /* Blue */
+  }
+}
+.food-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+
 
 @media screen and (max-width: 768px) {
-  .food-field{
-    margin: 50px;
+  .food-field {
+    margin: 20px;
   }
-  .App .col2 .foods .food-box{
-    width: 30%;
+  .App .col2 .foods .food-box {
+    width: 45%; /* Adjust width for smaller screens */
   }
-  .App .col2 .food-form{
+  .App .col2 .food-form {
     padding: 20px;
   }
-  .input-width{
-    width: 300px;
+  .input-width {
+    width: 100%; /* Full width for inputs */
   }
-  .input-width:last-child{
-    width: 100px;
+  .input-width:last-child {
+    width: 100%; /* Full width for the last input */
+  }
+  .food-detail {
+    max-width: 90%; /* Adjust max-width for smaller screens */
   }
 }
 
 @media screen and (max-width: 450px) {
-  .App .col2.foods .food-box{
-    width: 50%;
+  .App .col2{
+    display: flex;
+    flex-direction:column-reverse;
+  }
+  .App .col2 .foods .food-box {
+    width: 100%; /* Full width for very small screens */
     font-size: small;
   }
-  .input-width{
-    width: 150px;
+  .input-width {
+    width: 100%; /* Full width for inputs */
     font-size: small;
+  }
+  .input-width:last-child {
+    width: 100%; /* Full width for the last input */
+    font-size: small;
+  }
+  .food-detail {
+    max-width: 100%; /* Full width for very small screens */
+  }
+  .App .col2 .filter-box label{
+    font-size: smaller;
+  }
+  .App .col2 .filter-box input {
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 1px; /* Add padding for better look */
+  }
+  .App .col2 .filter-box button{
+    width: 100%;
+    padding: 5px; /* Add padding for better look */
+  }
+  .App .food-form {
+    display: block;
+    padding: 10px;
+  }
+  .input-width:first-child{
+    width: 70%;
   }
   .input-width:last-child{
-    width: 70px;
-    font-size: small;
+    width: 25%;
+    padding: 5px; /* Add padding for better look */
   }
 }
 
 @media screen and (max-width: 376px) {
-  .App .col2 .foods .food-box{
-    width: 100%;
+  .App .col2 .foods .food-box {
+    width: 100%; /* Full width for very small screens */
+  }
+  .food-detail {
+    max-width: 100%; /* Full width for very small screens */
   }
 }
